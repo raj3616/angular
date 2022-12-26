@@ -1,0 +1,84 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary m-2 float-right m-2"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  (click)="addclick()"
+>
+  Add Employee Name
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="false"
+>
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ ModalTitle }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeclick()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-emp
+          [Emp]="Emp"
+          *ngIf="ActivateEditAddEmpComp"
+        ></app-add-edit-emp>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Employee Id</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">DateOfJoining</th>
+        <th scope="col">Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Employeelist">
+        <th scope="row">{{ item.EmployeeId }}</th>
+        <td>{{ item.EmployeeName }}</td>
+        <td>{{ item.Department }}</td>
+        <td>{{ item.DateOfJoining }}</td>
+        <td>
+          <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="EditUser(item)"
+            data-backdrop="static"
+            data-keyboard="false"
+            type="button"
+            class="btn btn-light mr-2"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            (click)="DeleteUser(item.EmployeeId)"
+            type="button"
+            class="btn btn-light mr-2"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

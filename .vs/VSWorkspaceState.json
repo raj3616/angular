@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\department",
+    "\\src\\app\\department\\edit-add-dept",
+    "\\src\\app\\department\\show-del-dept"
+  ],
+  "PreviewInSolutionExplorer": false
+}
